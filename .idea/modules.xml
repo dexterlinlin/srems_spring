@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/sreclient/sreclient.iml" filepath="$PROJECT_DIR$/sreclient/sreclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/srems_spring.iml" filepath="$PROJECT_DIR$/.idea/srems_spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sreserver/sreserver.iml" filepath="$PROJECT_DIR$/sreserver/sreserver.iml" />
+    </modules>
+  </component>
+</project>
