@@ -1,6 +1,8 @@
 # srems_spring
 Spring Cloud Driven SREMS
 
+### <a href="https://github.com/lenve/vhr/wiki" target="_blank">参考文档</a>
+
 # 环境准备
 ## Maven：
 
@@ -14,5 +16,5 @@ Spring Cloud Driven SREMS
 
    
 
- 
+
   
