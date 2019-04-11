@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.srems.mappers.GenericRelationMapper">
+    <resultMap id="resultmap" type="org.srems.models.GenericRelation">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="fnodeid" jdbcType="VARCHAR" property="fnodeId" />
+        <result column="tnodeid" jdbcType="VARCHAR" property="tnodeId" />
+        <result column="fnodetype" jdbcType="VARCHAR" property="fnodeType" />
+        <result column="tnodetype" jdbcType="VARCHAR" property="tnodeType" />
+        <result column="status" jdbcType="BIT" property="status" />
+    </resultMap>
+
+    <insert id="addRelation">
+        insert into tbl_relation_map values(#{rel.id,jdbcType=VARCHAR},
+        #{rel.fnodeId,jdbcType=VARCHAR},
+        #{rel.tnodeId,jdbcType=VARCHAR},
+        #{rel.fnodeType,jdbcType=VARCHAR},
+        #{rel.tnodeType,jdbcType=VARCHAR},
+        #{rel.status,jdbcType=BIT})
+    </insert>
+
+</mapper>

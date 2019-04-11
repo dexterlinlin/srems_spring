@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.srems.mappers.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="org.srems.models.Employee">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="department_id" jdbcType="VARCHAR" property="departmentId" />
+    <result column="position_id" jdbcType="VARCHAR" property="positionId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, idcard, name, department_id, position_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from employee
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from employee
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.srems.models.Employee">
+    insert into employee (id, idcard, name,
+      department_id, position_id)
+    values (#{id,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+      #{departmentId,jdbcType=VARCHAR}, #{positionId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.srems.models.Employee">
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="departmentId != null">
+        department_id,
+      </if>
+      <if test="positionId != null">
+        position_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentId != null">
+        #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="positionId != null">
+        #{positionId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.srems.models.Employee">
+    update employee
+    <set>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentId != null">
+        department_id = #{departmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="positionId != null">
+        position_id = #{positionId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.srems.models.Employee">
+    update employee
+    set idcard = #{idcard,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      department_id = #{departmentId,jdbcType=VARCHAR},
+      position_id = #{positionId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
